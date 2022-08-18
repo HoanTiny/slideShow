@@ -7,8 +7,6 @@ const dots = document.querySelectorAll(".dot");
 const img = document.querySelectorAll(".slide");
 slides.style.width = `${widthImg * img.length}px`;
 let sildeIndex = 0;
-let currentIndex = 0;
-makeSlideshow(currentIndex);
 dots[sildeIndex].className += " active";
 
 function makeSlideshow(n) {
