@@ -1,3 +1,4 @@
+window.addEventListener("load", renderDot);
 const widthImg = 600;
 const slides = document.querySelector(".slides");
 const leftBtn = document.querySelector(".left-btn");
@@ -6,34 +7,44 @@ const dotMain = document.querySelector(".dot-main");
 const dots = document.querySelectorAll(".dot");
 const img = document.querySelectorAll(".slide");
 slides.style.width = `${widthImg * img.length}px`;
-let sildeIndex = 0;
-let currentIndex = 0;
-makeSlideshow(currentIndex);
-dots[sildeIndex].className += " active";
+let index = 0;
+let slideIndex = 1;
+makeSlideshow(slideIndex);
+console.log(dots);
+
+function renderDot() {
+    for (i = 0; i < img.length; i++) {
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        dotMain.appendChild(dot);
+        // save className dot localStorage
+        localStorage.setItem("dot", dot.className);
+    }
+}
 
 function makeSlideshow(n) {
     if (n === 1) {
-        if (sildeIndex >= img.length - 1) {
-            sildeIndex = 0;
+        if (index >= img.length - 1) {
+            index = 0;
         } else {
-            sildeIndex++;
+            index++;
         }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        dots[sildeIndex].className += " active";
-        slides.style.transform = `translateX(-${widthImg * sildeIndex}px)`;
+        dots[index].className += " active";
+        slides.style.transform = `translateX(-${widthImg * index}px)`;
     } else if (n === -1) {
-        if (sildeIndex <= 0) {
-            sildeIndex = img.length - 1;
+        if (index <= 0) {
+            index = img.length - 1;
         } else {
-            sildeIndex--;
+            index--;
         }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        dots[sildeIndex].className += " active";
-        slides.style.transform = `translateX(-${widthImg * sildeIndex}px)`;
+        dots[index].className += " active";
+        slides.style.transform = `translateX(-${widthImg * index}px)`;
     }
     dots.forEach((dot, indexdot) => {
         dot.addEventListener("click", () => {
@@ -45,6 +56,6 @@ function makeSlideshow(n) {
         });
     });
 }
-setInterval(() => {
-    makeSlideshow(1);
-}, 5000);
+// setInterval(() => {
+//     makeSlideshow(true);
+// }, 5000);

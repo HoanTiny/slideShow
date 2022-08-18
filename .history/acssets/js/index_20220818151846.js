@@ -7,9 +7,8 @@ const dots = document.querySelectorAll(".dot");
 const img = document.querySelectorAll(".slide");
 slides.style.width = `${widthImg * img.length}px`;
 let sildeIndex = 0;
-let currentIndex = 0;
+let currentIndex = 1;
 makeSlideshow(currentIndex);
-dots[sildeIndex].className += " active";
 
 function makeSlideshow(n) {
     if (n === 1) {
@@ -45,6 +44,6 @@ function makeSlideshow(n) {
         });
     });
 }
-setInterval(() => {
-    makeSlideshow(1);
-}, 5000);
+// setInterval(() => {
+//     makeSlideshow(true);
+// }, 5000);

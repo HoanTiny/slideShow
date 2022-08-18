@@ -45,6 +45,6 @@ function makeSlideshow(n) {
         });
     });
 }
-setInterval(() => {
-    makeSlideshow(1);
-}, 5000);
+// setInterval(() => {
+//     makeSlideshow(true);
+// }, 5000);

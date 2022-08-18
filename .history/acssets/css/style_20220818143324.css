@@ -31,8 +31,8 @@ body {
     height: 50px;
     z-index: 1;
 }
-.left-btn.disabled,
-.right-btn.disabled {
+.left-btn.disibled,
+.right-btn.disibled {
     background: transparent;
     cursor: default;
     color: rgb(170, 170, 170);

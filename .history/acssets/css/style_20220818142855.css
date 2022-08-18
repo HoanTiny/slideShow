@@ -31,11 +31,9 @@ body {
     height: 50px;
     z-index: 1;
 }
-.left-btn.disabled,
-.right-btn.disabled {
-    background: transparent;
+.left-btn.disible {
+    background: rgb(170, 170, 170);
     cursor: default;
-    color: rgb(170, 170, 170);
 }
 
 .right-btn {
