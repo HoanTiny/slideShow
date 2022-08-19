@@ -1,36 +1,28 @@
-const imgs = [
-    "./acssets/img/logo.jpg",
-    "./acssets/img/manU.jpg",
-    "./acssets/img/mU.jpg",
-    "./acssets/img/Jennie.jpg",
-];
 const widthImg = 600;
 const slides = document.querySelector(".slides");
 const leftBtn = document.querySelector(".left-btn");
 const rightBtn = document.querySelector(".right-btn");
 const dotMain = document.querySelector(".dot-main");
-render();
 const dots = document.querySelectorAll(".dot");
 const listImg = document.querySelectorAll(".slide");
 slides.style.width = `${widthImg * listImg.length}px`;
 let slideIndex = 0;
 makeSlideshow(slideIndex);
+//render img to html loop
+const imgs = [
+    "./acssets/img/logo.jpg",
+    "./assets/img/manU.jpg",
+    "./assets/img/mU.jpg",
+];
+imgs.forEach((img, index) => {
+    const imgElement = document.createElement("img");
+    imgElement.src = img;
+    imgElement.className = "slide";
+    imgElement.style.width = `${widthImg}px`;
+    imgElement.style.left = `${widthImg * index}px`;
+    slides.appendChild(imgElement);
+});
 
-function render() {
-    const htmls = imgs.map((img, index) => {
-        console.log(img);
-        return `
-                <img src="${img}" alt="" class="slide" />
-                        `;
-    });
-    slides.innerHTML = htmls.join("");
-    imgs.forEach((img, index) => {
-        const dot = document.createElement("div");
-        dot.classList.add("dot");
-        dotMain.appendChild(dot);
-    });
-}
-console.log(listImg);
 function transferSlides(n) {
     makeSlideshow((slideIndex += n));
 }

@@ -2,7 +2,6 @@ const imgs = [
     "./acssets/img/logo.jpg",
     "./acssets/img/manU.jpg",
     "./acssets/img/mU.jpg",
-    "./acssets/img/Jennie.jpg",
 ];
 const widthImg = 600;
 const slides = document.querySelector(".slides");
@@ -16,7 +15,7 @@ slides.style.width = `${widthImg * listImg.length}px`;
 let slideIndex = 0;
 makeSlideshow(slideIndex);
 
-function render() {
+function render(dk) {
     const htmls = imgs.map((img, index) => {
         console.log(img);
         return `

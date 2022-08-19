@@ -16,7 +16,7 @@ slides.style.width = `${widthImg * listImg.length}px`;
 let slideIndex = 0;
 makeSlideshow(slideIndex);
 
-function render() {
+function render(dk) {
     const htmls = imgs.map((img, index) => {
         console.log(img);
         return `
