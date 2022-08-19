@@ -30,7 +30,6 @@ function makeSlideshow(n) {
             }
             dots[indexdot].className += " active";
             slides.style.transform = `translateX(-${widthImg * indexdot}px)`;
-            slideIndex = indexdot;
         });
     });
 }
