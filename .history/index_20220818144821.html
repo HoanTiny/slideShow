@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./acssets/css/style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div class="slider">
+            <i
+                class="fa fa-angle-left left-btn"
+                onclick="makeSlideshow(-1);"
+            ></i>
+            <div class="slider-main">
+                <div class="slides">
+                    <img src="./acssets/img/mU.jpg" alt="" class="slide" />
+                    <img src="./acssets/img/logo.jpg" alt="" class="slide" />
+                    <img src="./acssets/img/manU.jpg" alt="" class="slide" />
+                    <img src="./acssets/img/logo.jpg" alt="" class="slide" />
+                    <img src="./acssets/img/mU.jpg" alt="" class="slide" />
+                </div>
+            </div>
+            <i class="fa fa-angle-right right-btn" onclick="addDot();"></i>
+            <div style="text-align: center" class="dot-main">
+                <!-- <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span> -->
+            </div>
+        </div>
+
+        <script src="./acssets/js/index.js"></script>
+    </body>
+</html>
