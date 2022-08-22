@@ -4,51 +4,37 @@ const imgs = [
     "./acssets/img/mU.jpg",
     "./acssets/img/Jennie.jpg",
 ];
+render();
 const widthImg = 600;
 const slides = document.querySelector(".slides");
 const leftBtn = document.querySelector(".left-btn");
 const rightBtn = document.querySelector(".right-btn");
 const dotMain = document.querySelector(".dot-main");
-// slides.style.width = `${widthImg * listImg.length}px`;
+const dots = document.querySelectorAll(".dot");
+const listImg = document.querySelectorAll(".slide");
+slides.style.width = `${widthImg * listImg.length}px`;
 let slideIndex = 0;
-render();
 makeSlideshow(slideIndex);
-// clear interval when click btn left and run again
 
-leftBtn.addEventListener("click", () => {
-    transferSlides(-1);
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
-});
-rightBtn.addEventListener("click", () => {
-    transferSlides(1);
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
-});
 function render() {
-    const htmls = imgs.map((img) => {
+    const htmls = imgs.map((img, index) => {
         console.log(img);
         return `
                 <img src="${img}" alt="" class="slide" />
                         `;
     });
     slides.innerHTML = htmls.join("");
-    imgs.forEach((img) => {
+    imgs.forEach((img, index) => {
         const dot = document.createElement("div");
         dot.classList.add("dot");
         dotMain.appendChild(dot);
     });
 }
+console.log(listImg);
 function transferSlides(n) {
     makeSlideshow((slideIndex += n));
 }
 function makeSlideshow(n) {
-    const dots = document.querySelectorAll(".dot");
-    const listImg = document.querySelectorAll(".slide");
     if (n > listImg.length - 1) {
         slideIndex = 0;
     }
@@ -71,6 +57,6 @@ function makeSlideshow(n) {
         });
     });
 }
-var autoSlide = setInterval(() => {
+setInterval(() => {
     transferSlides(1);
 }, 5000);

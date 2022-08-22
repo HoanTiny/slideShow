@@ -13,21 +13,11 @@ const dotMain = document.querySelector(".dot-main");
 let slideIndex = 0;
 render();
 makeSlideshow(slideIndex);
-// clear interval when click btn left and run again
-
 leftBtn.addEventListener("click", () => {
     transferSlides(-1);
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
 });
 rightBtn.addEventListener("click", () => {
     transferSlides(1);
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
 });
 function render() {
     const htmls = imgs.map((img) => {
@@ -71,6 +61,6 @@ function makeSlideshow(n) {
         });
     });
 }
-var autoSlide = setInterval(() => {
+setInterval(() => {
     transferSlides(1);
 }, 5000);

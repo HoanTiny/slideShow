@@ -18,16 +18,11 @@ makeSlideshow(slideIndex);
 leftBtn.addEventListener("click", () => {
     transferSlides(-1);
     clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
+    autoSlide();
 });
 rightBtn.addEventListener("click", () => {
     transferSlides(1);
     clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
 });
 function render() {
     const htmls = imgs.map((img) => {
@@ -71,6 +66,4 @@ function makeSlideshow(n) {
         });
     });
 }
-var autoSlide = setInterval(() => {
-    transferSlides(1);
-}, 5000);
+var autoSlide = setInterval(transferSlides(1), 5000);

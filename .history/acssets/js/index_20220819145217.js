@@ -13,31 +13,16 @@ const dotMain = document.querySelector(".dot-main");
 let slideIndex = 0;
 render();
 makeSlideshow(slideIndex);
-// clear interval when click btn left and run again
 
-leftBtn.addEventListener("click", () => {
-    transferSlides(-1);
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
-});
-rightBtn.addEventListener("click", () => {
-    transferSlides(1);
-    clearInterval(autoSlide);
-    autoSlide = setInterval(() => {
-        transferSlides(1);
-    }, 5000);
-});
 function render() {
-    const htmls = imgs.map((img) => {
+    const htmls = imgs.map((img, index) => {
         console.log(img);
         return `
                 <img src="${img}" alt="" class="slide" />
                         `;
     });
     slides.innerHTML = htmls.join("");
-    imgs.forEach((img) => {
+    imgs.forEach((img, index) => {
         const dot = document.createElement("div");
         dot.classList.add("dot");
         dotMain.appendChild(dot);
@@ -71,6 +56,6 @@ function makeSlideshow(n) {
         });
     });
 }
-var autoSlide = setInterval(() => {
+setInterval(() => {
     transferSlides(1);
 }, 5000);
